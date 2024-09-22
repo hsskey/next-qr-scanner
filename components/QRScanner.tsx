@@ -24,7 +24,7 @@ export default function QRScanner() {
       new URL('../workers/qrWorker.ts', import.meta.url),
     )
 
-    const captureInterval = setInterval(() => {
+    const captureFrame = () => {
       if (videoRef.current && canvasRef.current) {
         const canvas = canvasRef.current
         const video = videoRef.current
@@ -37,7 +37,9 @@ export default function QRScanner() {
           worker.postMessage({ imageData })
         }
       }
-    }, 200)
+    }
+
+    const captureInterval = setInterval(captureFrame, 200)
 
     worker.onmessage = (
       e: MessageEvent<QRCodeDetectionResult[] | { error: string }>,
@@ -47,6 +49,10 @@ export default function QRScanner() {
       } else if (e.data.error) {
         setWorkerError(e.data.error)
       }
+    }
+
+    worker.onerror = (e) => {
+      setWorkerError(e.message)
     }
 
     return () => {
