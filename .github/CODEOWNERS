@@ -1,0 +1,8 @@
+# 모든 파일에 대한 리뷰어 지정
+* @hsskey
+
+# 특정 디렉토리에 대한 리뷰어 지정
+# /path/to/directory/ @reviewer2
+
+# 특정 파일에 대한 리뷰어 지정
+# /path/to/file.txt @reviewer3 @team/reviewers
