@@ -4,6 +4,8 @@
 
 이 프로젝트는 Next.js, WebAssembly, 그리고 Web Worker를 활용하여 구현한 QR 코드 스캐너입니다. OpenCV.js(WebAssembly 버전)를 사용하여 브라우저에서 직접 실행하며, Web Worker를 통해 메인 스레드의 부하를 줄이고 UI의 반응성을 향상시켰습니다.
 
+![QR Scanner Demo](https://i.imgur.com/sxrnChU.gif)
+
 ## 주요 기능
 
 - WebAssembly로 컴파일된 OpenCV.js를 사용한 고성능 이미지 처리
